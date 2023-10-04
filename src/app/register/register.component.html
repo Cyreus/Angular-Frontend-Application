@@ -1,0 +1,20 @@
+<form [formGroup]="registerAddForm" (ngSubmit)="register()" class="form-register">
+    <h2 class="mt-5">Kayıt</h2>
+    <div class="form-group">
+        <input type="text" id="UserName"  formControlName="UserName" class="form-control" placeholder="User Name">
+        <span class="help-block" *ngIf="registerAddForm.get('UserName')?.hasError('required') && registerAddForm.get('UserName')?.touched">
+            Kullanıcı adı gereklidir!
+        </span>
+    </div>
+    <hr>
+    <div class="form-group">
+        <input type="password" id="Password"  formControlName="Password" class="form-control" placeholder="Password">
+        <span class="help-block" *ngIf="registerAddForm.get('Password')?.hasError('required') && registerAddForm.get('Password')?.touched">
+            Şifre gereklidir!
+        </span>
+    </div>
+    <hr>
+    <button class="btn btn-md btn-primary btn-block" [disabled]="!registerAddForm.valid" type="submit">Kayıt Ol!</button>
+
+
+</form>
